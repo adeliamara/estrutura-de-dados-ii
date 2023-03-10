@@ -70,11 +70,12 @@ criaArvoreVazia(), criaArvoere(3, criaArvoreVazia(), criaArvoreVazia())),
      NoArv *raizEstritamenteBinaria = criaArvoere(1,
             criaArvoere(2,   criaArvoreVazia(), criaArvoreVazia()),  criaArvoere(2,   criaArvoreVazia(), criaArvoreVazia()));
 
- 
+                 
+     NoArv *raizEstritamenteBinaria2 = criaArvoere(1,criaArvoreVazia(), criaArvoreVazia());
     
-    bool ehEstritamenteBinaria = verificaArvoreEstritamenteBinaria(raizEstritamenteBinaria);
+    bool ehEstritamenteBinaria = verificaArvoreEstritamenteBinaria(raizEstritamenteBinaria2);
     
-    if(ehEstritamenteBinaria){
+    if(raizEstritamenteBinaria2){
     	cout << "eh estritamente binaria!";
 	}else{
 		cout << "Nao eh estritamente binaria!";
