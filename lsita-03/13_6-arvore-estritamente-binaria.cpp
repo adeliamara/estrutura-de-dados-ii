@@ -77,7 +77,7 @@ criaArvoreVazia(), criaArvoere(3, criaArvoreVazia(), criaArvoreVazia())),
     if(ehEstritamenteBinaria){
     	cout << "eh estritamente binaria!";
 	}else{
-		cout << "N]ao eh estritamente binaria!";
+		cout << "Nao eh estritamente binaria!";
 
 	}
  
