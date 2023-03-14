@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<iostream>
 #include<stdlib.h>
+#include <cmath>
+
 using namespace std;
 
 typedef struct noArv {
@@ -46,21 +48,31 @@ bool areTwoTreesEqual(NoArv* a, NoArv* b){
 	
 }
 
+int contaNos(NoArv *raiz){
+    if(arvoreEstaVazia(raiz))
+        return 0;
+    else
+        return 1 + contaNos(raiz->esq) + contaNos(raiz->dir);
 
-bool isFullTree(NoArv* root) {
-    if (root == NULL) {
-        return true;
-    }
-    if (root->esq == NULL && root->dir == NULL) {
-        return true;
-    }
-
-    if (root->esq != NULL && root->dir != NULL) {
-        return isFullTree(root->esq) && isFullTree(root->dir);
-    }
-    return false;
 }
 
+int calculaAlturaArvore(NoArv *raiz){
+    if(raiz == NULL){
+        return 0;
+    }
+    else{
+        int esq = calculaAlturaArvore(raiz->esq);
+        int dir = calculaAlturaArvore(raiz->dir);
+        if(esq > dir)
+            return calculaAlturaArvore(raiz->esq) + 1;
+        return dir + 1;
+    }
+}
+
+
+bool isFullTree(NoArv* root) {
+    return contaNos(root) == pow(2,calculaAlturaArvore(root)) -1;
+}
 
 
 
@@ -69,7 +81,13 @@ int main(){
             criaArvoere(2,  
 criaArvoreVazia(), criaArvoreVazia()),
                             criaArvoere(4, criaArvoreVazia(), criaArvoreVazia()));
-
+	NoArv *arvoreNaoCheia = criaArvoere(1,
+criaArvoere(2,
+criaArvoere(4, criaArvoreVazia(), criaArvoreVazia()),
+criaArvoreVazia()),
+criaArvoere(3,
+criaArvoreVazia(),
+criaArvoere(7, criaArvoreVazia(), criaArvoreVazia())));
 
 
     if(isFullTree(arvoreCheia)){
@@ -77,6 +95,13 @@ criaArvoreVazia(), criaArvoreVazia()),
     }else {
     	cout << "nao eh cheia";
     }
+    
+    if(isFullTree(arvoreNaoCheia)){
+    	cout << "eh cheia";
+    }else {
+    	cout << "nao eh cheia";
+    }
+    
     
     return 0;
 }
