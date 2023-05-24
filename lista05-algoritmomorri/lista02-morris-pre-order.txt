@@ -1,0 +1,48 @@
+Questão 1
+
+10 5 3 7 20 15 24
+
+
+
+Questão 2
+
+1. Inicialize um ponteiro "p" com a raiz da árvore e um ponteiro temporário "tmp".
+
+2. Enquanto o ponteiro "p" não for nulo, execute o seguinte loop:
+
+
+	2.1 Chame a função "visit(p)" para visitar o nó atual.
+
+
+		- Verifique se o filho esquerdo de "p" é nulo, ou seja, "p->left == 0".
+
+		- Se for nulo, significa que não há mais nós à esquerda para percorrer. Nesse caso:
+
+			- Imprima o nó atual 
+			- Atualize o ponteiro "p" para apontar para o nó à direita, fazendo "p = p->right".
+
+		 - Se não for nulo, atribua o filho esquerdo de "p" ao ponteiro temporário "tmp".
+
+	2.2 Enquanto o ponteiro "tmp->right" não for nulo (0) e não apontar para "p", percorra os nós à direita de "tmp".
+		Esse passo é realizado para encontrar o nó mais à direita, que posteriormente será utilizado para restaurar a estrutura da árvore.
+	2.3 Verifique se o ponteiro "tmp->right" é nulo.
+
+		Se for nulo, significa que o nó atual ainda não foi visitado. Nesse caso:
+
+			- Imprima o nó atual 
+
+			- Faça "tmp->right" apontar para "p" (atual).
+			- Atualize o ponteiro "p" para apontar para o seu filho esquerdo, fazendo "p = p->left".
+
+		Se não for nulo, significa que o nó atual já foi visitado anteriormente. Nesse caso:
+
+			- Faça "tmp->right" apontar para nulo (0).
+			- Atualize o ponteiro "p" para apontar para o nó à direita, fazendo "p = p->right".
+
+Repita os passos para percorrer toda a arvore
+
+
+
+Questão 3
+
+Está correta

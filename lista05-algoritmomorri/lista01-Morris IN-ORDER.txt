@@ -1,0 +1,34 @@
+Questao 1
+
+
+Resposta: 3 5 7 10 15 20 24
+
+
+Questao 2
+
+O algoritmo de Morris - Percurso inORDER realiza os seguintes passos:
+
+1.Atribua o ponteiro p e faça-o apontar para a raiz da árvore.
+
+2. Enquanto o ponteiro p não for nulo, execute o seguinte loop:
+
+	2.1 Verifique se o filho esquerdo de p é nulo. Se for nulo, significa que não há mais nós à esquerda para percorrer. Nesse caso, imprima o valor do nó p e mude o ponteiro p para apontar para o nó à direita, fazendo "p = p->direita".
+
+	2.3 Se não for nulo, entao crie um ponteiro chamado "antecessor" e faça-o apontar para o filho esquerdo de p (p->esquerda).
+
+ 	2.4 Enquanto o ponteiro "antecessor->direita" não for nulo (NULL) e não apontar para p, percorra os nós à direita de "antecessor". Esse passo é realizado para encontrar o nó mais à direita, que posteriormente apontará para o p e também será utilizado para restaurar a estrutura da árvore.
+
+	2.5 Verifique se o ponteiro "antecessor->direita" é nulo. 
+		2.5.1 Se for nulo, significa que o nó p ainda não foi visitado. Nesse caso, faça "antecessor->direita" apontar para p e pize o ponteiro p para apontar para o seu filho esquerdo, fazendo "p = p->esquerda". Esse passo conecta o nó mais à direita ao p, permitindo que a estrutura da árvore seja restaurada corretamente.
+		2.5.2 Se não for nulo, significa que o nó p já foi visitado anteriormente. Nesse caso, faça "antecessor->direita" apontar para nulo (NULL), imprima o valor do nó p e aponte o ponteiro p para apontar para o nó à direita, fazendo "p = p->direita".
+Esse passo indica que o nó p já foi completamente percorrido, permitindo que seja impresso e encerrando a conexão com o "antecessor".
+R
+epita os passos dentro do loop
+
+Este algoritmo realiza um percurso In-Order (LVR) na árvore de forma não recursiva e evita o uso de uma pilha de execução.
+
+
+Questao 3
+
+O resultado está correto
+
